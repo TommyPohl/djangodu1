@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Member
+from django.http import HttpResponse
 
 def home(request):
     return render(request, 'frameworks/home.html')
@@ -17,3 +18,7 @@ def members(request):
 def member_detail(request, member_id):
     member = get_object_or_404(Member, id=member_id)
     return render(request, 'frameworks/member_detail.html', {'member': member})
+
+def get_param(request):
+    jmeno = request.GET.get('jmeno', 'Neznámý')
+    return HttpResponse(f"Zadané jméno je: {jmeno}")
