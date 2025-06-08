@@ -1,0 +1,8 @@
+{% extends 'frameworks/base.html' %}
+{% block title %}Detail člena{% endblock %}
+{% block content %}
+<h1>{{ member.name }}</h1>
+<p>Email: {{ member.email }}</p>
+<p>Bio: {{ member.bio }}</p>
+<a href="{% url 'members' %}">Zpět na seznam</a>
+{% endblock %}

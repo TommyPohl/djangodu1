@@ -1,0 +1,12 @@
+{% extends 'frameworks/base.html' %}
+{% block title %}Members{% endblock %}
+{% block content %}
+<h1>Seznam členů</h1>
+<ul>
+  {% for member in members %}
+    <li><a href="{% url 'member_detail' member.id %}">{{ member.name }}</a></li>
+  {% empty %}
+    <li>Žádní členové zatím nejsou.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
