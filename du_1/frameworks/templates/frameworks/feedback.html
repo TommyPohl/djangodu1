@@ -1,0 +1,22 @@
+{% extends "frameworks/base.html" %}
+
+{% block title %}Zpětná vazba{% endblock %}
+
+{% block content %}
+<h1>Zpětná vazba</h1>
+
+{% if success %}
+  <p style="color: green;">Děkujeme za vaši zpětnou vazbu!</p>
+{% endif %}
+
+<form method="post" action="">
+  {% csrf_token %}
+  <label for="jmeno">Jméno:</label><br>
+  <input type="text" id="jmeno" name="jmeno" required><br><br>
+
+  <label for="zprava">Zpráva:</label><br>
+  <textarea id="zprava" name="zprava" rows="4" required></textarea><br><br>
+
+  <button type="submit">Odeslat</button>
+</form>
+{% endblock %}

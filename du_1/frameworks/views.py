@@ -26,3 +26,17 @@ def get_param(request):
 def category(request):
     kategorie = request.GET.get('kategorie')  # nebo None
     return render(request, 'frameworks/category.html', {'kategorie': kategorie})
+
+
+def feedback(request):
+    if request.method == 'POST':
+        jmeno = request.POST.get('jmeno')
+        zprava = request.POST.get('zprava')
+
+        print(f"Zpětná vazba od {jmeno}: {zprava}")
+
+        return HttpResponseRedirect('/feedback/?success=1')
+
+    success = request.GET.get('success') == '1'
+
+    return render(request, 'frameworks/feedback.html', {'success': success})
