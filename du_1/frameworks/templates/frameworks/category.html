@@ -1,0 +1,21 @@
+{% extends "frameworks/base.html" %}
+
+{% block title %}Výběr kategorie{% endblock %}
+
+{% block content %}
+<h1>Vyber kategorii</h1>
+
+<form method="get" action="{% url 'category' %}">
+  <label for="kategorie">Kategorie:</label>
+  <select name="kategorie" id="kategorie">
+    <option value="filmy">Filmy</option>
+    <option value="knihy">Knihy</option>
+    <option value="hry">Hry</option>
+  </select>
+  <button type="submit">Odeslat</button>
+</form>
+
+{% if kategorie %}
+  <p>Vybral jsi kategorii: <strong>{{ kategorie }}</strong></p>
+{% endif %}
+{% endblock %}

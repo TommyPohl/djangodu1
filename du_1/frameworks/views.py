@@ -22,3 +22,7 @@ def member_detail(request, member_id):
 def get_param(request):
     jmeno = request.GET.get('jmeno', 'Neznámý')
     return HttpResponse(f"Zadané jméno je: {jmeno}")
+
+def category(request):
+    kategorie = request.GET.get('kategorie')  # nebo None
+    return render(request, 'frameworks/category.html', {'kategorie': kategorie})
